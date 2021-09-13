@@ -2,10 +2,12 @@ package com.pluralsight.repository;
 
 import com.pluralsight.model.Speaker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("speakerRepository")
 public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
 
     public  HibernateSpeakerRepositoryImpl(){

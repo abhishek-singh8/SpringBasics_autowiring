@@ -4,9 +4,11 @@ import com.pluralsight.model.Speaker;
 import com.pluralsight.repository.HibernateSpeakerRepositoryImpl;
 import com.pluralsight.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("speakerService")
 public class SpeakerServiceImpl implements com.pluralsight.service.SpeakerService {
 
 
@@ -34,13 +36,14 @@ public class SpeakerServiceImpl implements com.pluralsight.service.SpeakerServic
      */
 
     // CONSTRUCTOR APPROACH
+    @Autowired
     public SpeakerServiceImpl(SpeakerRepository speakerRepository){
-        System.out.println("This is the repository constructor");
+        System.out.println("This is the parameter service constructor");
         this.speakerRepository=speakerRepository;
     }
 
     //SETTER APPROACH
-    @Autowired
+  //  @Autowired
     public void setSpeakerRepository(SpeakerRepository speakerRepository) {
         System.out.println("This is a setter");
         System.out.println("REPO object "+speakerRepository);
