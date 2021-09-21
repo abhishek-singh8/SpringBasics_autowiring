@@ -4,8 +4,12 @@ import com.pluralsight.model.Speaker;
 import com.pluralsight.repository.HibernateSpeakerRepositoryImpl;
 import com.pluralsight.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service("speakerService")
@@ -28,7 +32,7 @@ public class SpeakerServiceImpl implements com.pluralsight.service.SpeakerServic
     private SpeakerRepository speakerRepository;
 
     public SpeakerServiceImpl(){
-        System.out.println("No args constructor");
+        System.out.println("No args constructor inside service");
     };
 
     /* We can inject or wire the repo instance into service instance
@@ -40,13 +44,19 @@ public class SpeakerServiceImpl implements com.pluralsight.service.SpeakerServic
     public SpeakerServiceImpl(SpeakerRepository speakerRepository){
         System.out.println("This is the parameter service constructor");
         this.speakerRepository=speakerRepository;
+        System.out.println("Injection of repo into service happens here "+this.speakerRepository);
+    }
+
+    @PostConstruct
+    private void initialize(){
+        System.out.println("This will be called after beans are created/constructors are called and injected");
     }
 
     //SETTER APPROACH
   //  @Autowired
     public void setSpeakerRepository(SpeakerRepository speakerRepository) {
         System.out.println("This is a setter");
-        System.out.println("REPO object "+speakerRepository);
+        System.out.println("REPO object inside setter "+speakerRepository);
         this.speakerRepository = speakerRepository;
     }
 

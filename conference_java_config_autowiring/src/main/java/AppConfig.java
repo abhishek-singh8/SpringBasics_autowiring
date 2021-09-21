@@ -21,7 +21,7 @@ public class AppConfig {
      */
 
 //    @Bean(name="speakerService")
-//    @Scope(value = BeanDefinition.SCOPE_SINGLETON)
+//    @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
 //    public SpeakerService getSpeakerService(){
 //
 //        /*SETTER INJECTION
@@ -46,6 +46,7 @@ public class AppConfig {
       This is a singleton,object will be created once
      */
 //    @Bean(name="speakerRepository")
+//    @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
 //    public SpeakerRepository getSpeakerRepository()
 //    {
 //        return new HibernateSpeakerRepositoryImpl();
