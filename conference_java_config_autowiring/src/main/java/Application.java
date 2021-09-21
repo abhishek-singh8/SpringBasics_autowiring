@@ -35,5 +35,7 @@ public class Application {
 
 
         System.out.println(speakerService.findAll().get(0).getFirstName());
+
+        System.out.println("seedNum SpEL  "+ speakerService.findAll().get(0).getSeedNum());
     }
 }

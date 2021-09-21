@@ -5,6 +5,7 @@ import com.pluralsight.repository.HibernateSpeakerRepositoryImpl;
 import com.pluralsight.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service("speakerService")
+@Profile("dev")
 public class SpeakerServiceImpl implements com.pluralsight.service.SpeakerService {
 
 
